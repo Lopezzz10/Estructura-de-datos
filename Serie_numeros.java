@@ -11,17 +11,19 @@ public class Serie_numeros {
             System.out.println("1. Serie de números");
             System.out.println("2. Pacientes y temperaturas");
             System.out.println("3. Agenda de contactos");
-            System.out.println("4. Salir");
+            System.out.println("4. Suma de números (recursivo e iterativo)");
+            System.out.println("5. Salir");
             opcion = f.Valor(0, "Seleccionar la opción");
 
             switch (opcion) {
                 case 1 -> Serie(f);
                 case 2 -> Pacientes(f);
                 case 3 -> Agenda(f);
-                case 4 -> System.out.println("Fin del programa");
+                case 4 -> SumaNumeros(f);
+                case 5 -> System.out.println("Fin del programa");
                 default -> System.out.println("Opción no válida");
             }
-        } while (opcion != 4);
+        } while (opcion != 5);
     }
 
     public static void Serie(Class_Acciones f) {
@@ -207,5 +209,20 @@ public class Serie_numeros {
                 default -> System.out.println("Opción no válida");
             }
         } while (opcion != 5);
+    }
+
+    public static void SumaNumeros(Class_Acciones f) {
+        int n = 0;
+        n = f.Valor(n, "Ingresar n");
+
+        long iterativo = f.SumaNumeroIterativo(n);
+        long recursivo = f.SumaNumeroRecursivo(n);
+
+        System.out.println("\nSuma iterativa de 1 a " + n + " = " + iterativo);
+        System.out.println("Suma recursiva de 1 a " + n + " = " + recursivo);
+        f.TrazaSuma(n);
+
+        if (iterativo == recursivo)
+            System.out.println("\nAmbos métodos son equivalentes");
     }
 }

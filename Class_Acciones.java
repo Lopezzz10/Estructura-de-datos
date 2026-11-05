@@ -152,7 +152,7 @@ public class Class_Acciones {
             System.out.print(numeros[i]+", ");
     }
 
-    // ===================== NUEVO: PACIENTES =====================
+    // ===================== PACIENTES =====================
 
     public String LeerNombre(){
         String nombre;
@@ -254,7 +254,7 @@ public class Class_Acciones {
         System.out.println("Temperatura más baja: " + temperaturas[menor] + " (" + nombres[menor] + ")");
     }
 
-    // ===================== NUEVO: AGENDA DE CONTACTOS =====================
+    // ===================== AGENDA DE CONTACTOS =====================
 
     public String LeerNombreContacto(){
         String nombre;
@@ -341,5 +341,32 @@ public class Class_Acciones {
 
     public void ModificarTelefono(String [] nombres, String [] telefonos, int posicion){
         telefonos[posicion] = LeerTelefono("Nuevo teléfono de " + nombres[posicion]);
+    }
+
+    // ===================== SUMA DE NÚMEROS =====================
+
+    public long SumaNumeroIterativo(int n){
+        long resultado = 0;
+        for (int i = 1; i <= n; i++)
+            resultado = resultado + i;
+        return resultado;
+    }
+
+    public long SumaNumeroRecursivo(int n){
+        if (n == 1)
+            return 1;
+        else
+            return SumaNumeroRecursivo(n - 1) + n;
+    }
+
+    public void TrazaSuma(int n){
+        System.out.println("\nTraza:");
+        System.out.println("S(1) = 1");
+        long anterior = 1;
+        for (int i = 2; i <= n; i++){
+            long actual = anterior + i;
+            System.out.println("S(" + i + ") = S(" + (i - 1) + ") + " + i + " = " + anterior + " + " + i + " = " + actual);
+            anterior = actual;
+        }
     }
 }
